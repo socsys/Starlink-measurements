@@ -15,7 +15,7 @@ elem = driver.find_element_by_xpath('/html/body/div[2]/div[1]').click()
 time.sleep(2)
 
 
-driver.execute_script("document.getElementById('run_count').setAttribute('value', '16')");
+driver.execute_script("document.getElementById('run_count').setAttribute('value', '16311')");
 time.sleep(5)
 driver.execute_script("document.getElementById('starlink_name').setAttribute('value', 'Starlink-AlanDishTany')");
 
@@ -29,7 +29,9 @@ time.sleep(5)
 start_bt = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[1]/span/button[3]')
 driver.execute_script("arguments[0].click();", start_bt);
 
-
-print("Page title is: ")
-print(driver.title)
-#driver.close()
+while 1:
+	duration = driver.find_element_by_xpath('/html/body/div[2]/div[4]/div[1]/div/div[2]/span[1]')
+	if duration.text == "02:38":
+		print("End of this itration")
+		print(driver.title)
+		driver.quit()
